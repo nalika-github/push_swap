@@ -1,0 +1,26 @@
+[33mcommit 4ef59e2f63bde08aa5ab248e3c7323e1149ebf1a[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: nalika-github <g.nalika.tiew@gmail.com>
+Date:   Sat Feb 4 14:25:56 2023 +0700
+
+    fixed relink problem
+
+[33mcommit 9620f0ba85721fa337c5b8afc42f58208d2edebb[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Merge: 3a9cee0 e1de0e0
+Author: nalika-github <75383017+nalika-github@users.noreply.github.com>
+Date:   Fri Mar 25 21:50:57 2022 +0700
+
+    Merge pull request #1 from Porrapat/master
+    
+    Fix new good code for N Tew
+
+[33mcommit e1de0e0961e21cf70fa28a6f1d78ca2b280c16a8[m
+Author: Porrapat Petchdamrongskul <porrapat.cpe20@gmail.com>
+Date:   Fri Mar 25 21:45:24 2022 +0700
+
+    Fix new good code for N Tew
+
+[33mcommit 3a9cee0a62eab9275b867edf2c71d47ffa0af8a3[m
+Author: nalika-github <g.nalika.tiew@gmail.com>
+Date:   Fri Mar 25 20:15:25 2022 +0700
+
+    after first submit
