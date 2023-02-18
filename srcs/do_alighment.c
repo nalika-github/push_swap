@@ -11,25 +11,26 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "push_swap.h"
 
-void do_alighment(t_list *stack_a, t_list stack_b, int stack_size)
+void ps_do_sorce(t_list *stack_a, t_list stack_b, int stack_size)
 {
 	if (stack_size == 1)
 		return ;
 	else if (stack_size == 2)
-		two_sorce(stack_a);
+		ps_2sorce(stack_a);
 	else if (stack_size == 3)
-		three_sorce(stack_a);
+		ps_3sorce(stack_a);
 	else if (stack_size == 4)
-		four_sorce(stack_a, stack_b);
+		ps_4sorce(stack_a, stack_b);
 	else if (stack_size == 5)
-		five_sorce(stack_a, stack_b);
+		ps_5sorce(stack_a, stack_b);
 	else if (stack_size <= 20)
-		twenty_sorce(stack_a, stack_b);
+		ps_20sorce(stack_a, stack_b);
 	else if (stack_size <= 100)
-		onehundred_sorce(stack_a, stack_b);
+		ps_100sorce(stack_a, stack_b);
 	else if (stack_size <= 500)
-		fivehundred_sorce(stack_a, stack_b);
+		ps_500sorce(stack_a, stack_b);
 }
 
 void two_sorce(t_list *stack)
@@ -40,7 +41,51 @@ void two_sorce(t_list *stack)
 		do_sa(stack);
 }
 
-void three_sorce(t_list *stack)
+int	ps_findmaxloca(t_list *stack)
+{
+	t_list	*lst;
+	int		max;
+	int		max_loca;
+
+	lst = stack;
+	max = lst->content->data;
+	max_loca = 1;
+	while (lst)
+	{
+		if(max < lst->content->data)
+			max = lst->content->data;
+		lst->next;
+	}
+	max_loca = 1;
+	lst = stack;
+	while (lst)
+	{
+		if(max == lst->content->data)
+			return(max_loca);
+		max_loca++;
+		lst->next;
+	}
+	return (-1);
+}
+
+int	ps_findminloca(t_list *stack)
+{
+	t_list	*lst;
+	int		min_loca;
+
+	lst = stack;
+	max_loca = 1;
+	while (lst)
+	{
+		if (lst->content->tage == 1)
+			return (min_loca);
+		min_loca++;
+		lst->next;
+	}
+	return (-1);
+}
+
+void ps_3sorce(t_list *stack)
 {
 	t_list	lst;
 	int		max_loca;

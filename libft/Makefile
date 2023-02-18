@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
+#    By: ptungbun <ptungbun@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/22 13:50:38 by ptungbun          #+#    #+#              #
-#    Updated: 2023/02/14 10:47:20 by marvin           ###   ########.fr        #
+#    Updated: 2023/02/18 14:23:51 by ptungbun         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,11 +25,11 @@ SRCS		=	ft_isalpha.c ft_isdigit.c ft_isascii.c ft_isalnum.c ft_isprint.c \
 				ft_putstr_fd.c ft_putnbr_fd.c ft_putendl_fd.c ft_striteri.c \
 				ft_strchr.c ft_strdup.c ft_strrchr.c ft_strnstr.c ft_itoa.c \
 				ft_substr.c ft_strtrim.c ft_strmapi.c ft_strjoin.c ft_split.c \
-				ft_getstack.c ft_stackadd.c ft_stackisempty.c ft_stackisfull.c \
-				ft_stackpeek.c ft_stackpop.c ft_stackswap.c
+				ft_issign.c ft_lstnew.c ft_lstadd_front.c ft_lstlast.c ft_lstadd_back.c \
+				ft_lstsize.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c \
+				ft_stkadd.c ft_stkisempty.c ft_stkisfull.c ft_stkpeek.c ft_stkpop.c \
+				ft_stkswap.c ft_strcat.c
 
-BONUS		=	ft_lstnew.c ft_lstadd_front.c ft_lstlast.c ft_lstadd_back.c \
-				ft_lstsize.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
 
 # Find all the .o files we want to build libft.a
 
@@ -40,11 +40,8 @@ all: $(NAME)
 
 # Build step for C source
 
-$(NAME): $(OBJS) $(BONUS_OBJS)
-	ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
-
-bonus: $(OBJS) $(BONUS_OBJS)
-	ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
+$(NAME): $(OBJS)
+	ar rcs $(NAME) $(OBJS)
 
 clean:
 	rm -rf $(OBJS) $(BONUS_OBJS)
@@ -54,4 +51,4 @@ fclean:
 
 re: fclean all
 
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re

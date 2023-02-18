@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ptungbun <ptungbun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 15:51:40 by ptungbun          #+#    #+#             */
-/*   Updated: 2023/02/15 21:04:35 by marvin           ###   ########.fr       */
+/*   Updated: 2023/02/18 16:59:44 by ptungbun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 typedef struct s_list
 {
-	void			*content;
+	void			*info;
 	struct s_list	*next;
 }					t_list;
 
@@ -37,6 +37,7 @@ int					ft_stackisfull(t_stack *stack);
 int					ft_stackpeek(t_stack *stack);
 int					ft_stackpop(t_stack *stack);
 
+int					ft_issign(int c);
 int					ft_isalpha(int c);
 int					ft_isdigit(int c);
 int					ft_isascii(int c);

@@ -1,28 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_issign.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ptungbun <ptungbun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/14 11:06:33 by ptungbun          #+#    #+#             */
-/*   Updated: 2023/02/18 16:57:35 by ptungbun         ###   ########.fr       */
+/*   Created: 2023/02/18 12:58:15 by ptungbun          #+#    #+#             */
+/*   Updated: 2023/02/18 13:01:31 by ptungbun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-# include "libft.h"
-
-typedef struct s_stkdata
+int ft_issign(int c)
 {
-	int	tage;
-	int	data;
-}		t_stkdata;
-
-int		ps_handle_error(int argc, char **argv, t_list stack_a);
-t_list	*ps_getstack_a(int argc, char **argv);
-void	ps_tage(int argc, t_list *lst);
-
-#endif
+    if (c == '-' || c == '+')
+        return (1);
+    return (0);
+}
