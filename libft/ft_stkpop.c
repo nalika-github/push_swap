@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   ft_stackpop.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/20 21:32:16 by ptungbun          #+#    #+#             */
-/*   Updated: 2023/02/16 11:01:26 by marvin           ###   ########.fr       */
+/*   Created: 2023/02/05 10:18:18 by ptungbun          #+#    #+#             */
+/*   Updated: 2023/02/15 10:45:38 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void*))
+int ft_stkpop(t_stack *stack)
 {
-	t_list	*lst_next;
+	int pop_data;
 
-	if (!lst || !del)
-		return ;
-	while (*lst)
+	if(ft_stackisempty(stack))
 	{
-		lst_next = (*lst)->next;
-		ft_lstdelone (*lst, del);
-		*lst = lst_next;
+		ft_putstr_fd("Could not retrieve data, Stack is empty.\n", 1);
+		return(-2147483648);
+	}
+	else
+	{
+		pop_data = stack->array[stack->top];
+		stack->top = stack->top - 1;
+		return (pop_data);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 15:51:40 by ptungbun          #+#    #+#             */
-/*   Updated: 2023/02/04 14:13:32 by marvin           ###   ########.fr       */
+/*   Updated: 2023/02/15 21:04:35 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,20 @@ typedef struct s_list
 	void			*content;
 	struct s_list	*next;
 }					t_list;
+
+typedef struct	s_stack
+{
+	int			top;
+	unsigned	cap;
+	int			*array;
+}				t_stack;
+
+t_stack				*ft_getstack(unsigned capacity);
+void				ft_stackadd(t_stack *stack, int add_data);
+int					ft_stackisempty(t_stack *stack);
+int					ft_stackisfull(t_stack *stack);
+int					ft_stackpeek(t_stack *stack);
+int					ft_stackpop(t_stack *stack);
 
 int					ft_isalpha(int c);
 int					ft_isdigit(int c);
@@ -61,6 +75,7 @@ char				*ft_strtrim(char const *s1, char const *set);
 char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char				*ft_strjoin(char const *s1, char const *s2);
 char				**ft_split(char const *s, char c);
+char				*ft_strcat(char *s1, char *s2);
 
 t_list				*ft_lstnew(void *content);
 t_list				*ft_lstlast(t_list *lst);

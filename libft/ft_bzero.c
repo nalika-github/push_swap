@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 12:42:00 by ptungbun          #+#    #+#             */
-/*   Updated: 2023/02/04 12:57:59 by marvin           ###   ########.fr       */
+/*   Updated: 2023/02/16 11:08:21 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	*ft_bzero(void *b, size_t len)
 	buf = (unsigned char *)b;
 	while (i < len)
 	{
-		buf[i] = '\0';
+		buf[i] = 0;
 		i++;
 	}
 	b = buf;

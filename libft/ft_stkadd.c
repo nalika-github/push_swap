@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   ft_stkadd.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/20 21:32:16 by ptungbun          #+#    #+#             */
-/*   Updated: 2023/02/16 11:01:26 by marvin           ###   ########.fr       */
+/*   Created: 2023/02/05 10:18:18 by ptungbun          #+#    #+#             */
+/*   Updated: 2023/02/15 10:43:28 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void*))
+void ft_stkadd(t_stack *stack, int add_data)
 {
-	t_list	*lst_next;
-
-	if (!lst || !del)
+	if(ft_stackisfull(stack))
 		return ;
-	while (*lst)
+	else
 	{
-		lst_next = (*lst)->next;
-		ft_lstdelone (*lst, del);
-		*lst = lst_next;
+		stack->top = stack->top + 1;
+		stack->array[stack->top] = add_data;
 	}
 }

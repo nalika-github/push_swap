@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   ft_stkisempty.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/20 21:32:16 by ptungbun          #+#    #+#             */
-/*   Updated: 2023/02/16 11:01:26 by marvin           ###   ########.fr       */
+/*   Created: 2023/02/05 10:18:18 by ptungbun          #+#    #+#             */
+/*   Updated: 2023/02/15 10:44:56 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void*))
+int ft_stkisempty(t_stack *stack)
 {
-	t_list	*lst_next;
+	int	top;
 
-	if (!lst || !del)
-		return ;
-	while (*lst)
-	{
-		lst_next = (*lst)->next;
-		ft_lstdelone (*lst, del);
-		*lst = lst_next;
-	}
+	top = stack->top;
+	if(top == -1)
+		return 1;
+	else
+		return 0;
 }

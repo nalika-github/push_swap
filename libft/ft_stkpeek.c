@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   ft_stkpeek.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/20 21:32:16 by ptungbun          #+#    #+#             */
-/*   Updated: 2023/02/16 11:01:26 by marvin           ###   ########.fr       */
+/*   Created: 2023/02/05 10:18:18 by ptungbun          #+#    #+#             */
+/*   Updated: 2023/02/15 10:45:27 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void*))
+int ft_stkpeek(t_stack *stack)
 {
-	t_list	*lst_next;
-
-	if (!lst || !del)
-		return ;
-	while (*lst)
+	if(ft_stackisempty(stack))
 	{
-		lst_next = (*lst)->next;
-		ft_lstdelone (*lst, del);
-		*lst = lst_next;
+		ft_putstr_fd("Could not return a peek because, Stack is empty.\n", 1);
+		return(-2147483648);
 	}
+	else
+		return (stack->array[stack->top]);
 }
