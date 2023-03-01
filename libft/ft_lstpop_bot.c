@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_lstpop_bot.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/18 18:28:22 by ptungbun          #+#    #+#             */
-/*   Updated: 2023/02/21 14:14:23 by marvin           ###   ########.fr       */
+/*   Created: 2022/03/18 23:18:37 by ptungbun          #+#    #+#             */
+/*   Updated: 2023/02/26 12:18:26 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"libft.h"
 
-t_list	*ft_lstnew(void *data)
+t_list	*ft_lstpop_bot(t_list *lst)
 {
-	t_list	*room;
+	t_list	*b4_last;
 
-	room = (t_list *)malloc(sizeof(t_list));
-	if (!room)
+	if (ft_lstsize(lst) == 0)
 		return (0);
-	room->next = 0;
-	room->data = data;
-	return (room);
+	if (ft_lstsize(lst) == 1)
+		return (lst);
+	while (lst->next)
+	{
+		b4_last = lst;
+		lst = lst->next;
+	}
+	b4_last->next = NULL;
+	return (lst);
 }

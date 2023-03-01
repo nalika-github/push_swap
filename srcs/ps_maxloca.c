@@ -1,25 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ps_maxloca.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/18 18:28:22 by ptungbun          #+#    #+#             */
-/*   Updated: 2023/02/21 14:14:23 by marvin           ###   ########.fr       */
+/*   Created: 2023/02/26 09:56:50 by ptungbun          #+#    #+#             */
+/*   Updated: 2023/03/01 18:45:28 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "push_swap.h"
 
-t_list	*ft_lstnew(void *data)
+int	ps_maxloca(t_list **stk)
 {
-	t_list	*room;
+	t_list	*lst;
+	int		max;
+	int		max_loca;
 
-	room = (t_list *)malloc(sizeof(t_list));
-	if (!room)
-		return (0);
-	room->next = 0;
-	room->data = data;
-	return (room);
+	lst = *stk;
+	max = ((t_data *)lst->data)->num;
+	while (lst)
+	{
+		if(max < ((t_data *)lst->data)->num)
+			max = ((t_data *)lst->data)->num;
+		lst = lst->next;
+	}
+	max_loca = 1;
+	lst = *stk;
+	while (lst)
+	{
+		if(max == ((t_data *)lst->data)->num)
+			return(max_loca);
+		max_loca++;
+		lst = lst->next;
+	}
+	return (0);
 }
