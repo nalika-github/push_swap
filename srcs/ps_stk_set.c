@@ -12,15 +12,13 @@
 
 #include "push_swap.h"
 
-t_list	*ps_getstk_a(int argc, char **argv)
+t_list	*ps_getstk_a(int argc, char **argv, t_data *data)
 {
 	int		i;
-	t_data	*data;
 	t_list	*lst;
 	t_list	*new_lst;
 
 	i = 1;
-	data = ft_calloc((size_t)argc, sizeof(t_data));
 	data[i - 1].num = ft_atoi(argv[i]);
 	data[i - 1].tage = 0;
 	lst = ft_lstnew(data);

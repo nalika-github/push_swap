@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 23:12:24 by ptungbun          #+#    #+#             */
-/*   Updated: 2023/02/26 12:26:01 by marvin           ###   ########.fr       */
+/*   Updated: 2023/03/04 00:04:14 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ t_list	*ft_lstpop_top(t_list **lst)
 
 	if (ft_lstsize(*lst) == 0)
 		return (0);
-	if (ft_lstsize(*lst) == 1)
-		return (*lst);
 	pop = *lst;
 	(*lst) = (*lst)->next;
 	pop->next = NULL;

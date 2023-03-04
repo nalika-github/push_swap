@@ -1,47 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_100sorce.c                                      :+:      :+:    :+:   */
+/*   ps_chunk_pull.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 19:23:07 by ptungbun          #+#    #+#             */
-/*   Updated: 2023/03/04 13:04:39 by marvin           ###   ########.fr       */
+/*   Updated: 2023/03/04 00:38:47 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	ps_chunk_div(int i, int stk_size, int *chunk)
+void	ps_chunk_pull(t_list **stk_a, t_list **stk_b)
 {
-	int	chunk_size;
+	int	size;
+	int	maxlo;
 
-	chunk_size = 20;
-	chunk[0] = (i * chunk_size) + 1;
-	chunk[1] = (i + 1) * chunk_size;
-	if (chunk[1] > stk_size)
-		chunk[1] = stk_size;
-}
-
-void	ps_500sorce(t_list **stk_a, t_list **stk_b, int stk_size)
-{
-	int	i;
-	int	j;
-	int	chunk[2];
-
-	i = 0;
-	chunk[0] = 0;
-	chunk[1] = 0;
-	while (chunk[1] < stk_size)
+	size = ft_lstsize(*stk_b);
+	while(size > 0)
 	{
-		ps_chunk_div(i, stk_size, chunk);
-		j = chunk[0];
-		while (j <= chunk[1])
+		maxlo = ps_maxloca(stk_b);
+		if (maxlo > (size / 2))
 		{
-			ps_chunk_push(stk_a, stk_b, stk_size, chunk);
-			j++;
+			while(maxlo != 1)
+			{
+				ps_dorrb(stk_b);
+				maxlo = ps_maxloca(stk_b);
+			}
+			ps_dopa(stk_a, stk_b);
 		}
-		i++;
+		else
+		{
+			while(maxlo != 1)
+			{
+				ps_dorb(stk_b);
+				maxlo = ps_maxloca(stk_b);
+			}
+			ps_dopa(stk_a, stk_b);
+		}
+		size = ft_lstsize(*stk_b);
 	}
-	ps_chunk_pull(stk_a, stk_b);
 }
+

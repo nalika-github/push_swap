@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 11:06:33 by ptungbun          #+#    #+#             */
-/*   Updated: 2023/03/01 18:49:20 by marvin           ###   ########.fr       */
+/*   Updated: 2023/03/04 13:04:23 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,11 @@ int		ps_inlo(t_list **stk, int to_find);
 int		ps_maxloca(t_list **stk);
 int		ps_minloca(t_list **stk);
 int		ps_issorced(t_list **stk);
+int		ps_isinchunk(t_list *lst, int *chunk);
+int		ps_ismax(t_list *stk, int num);
+int		ps_ismin(t_list *stk, int num);
+void	ps_doedge(t_list **stk_b);
+void	ps_doins(t_list **stk_a, t_list **stk_b);
 
 int		*ps_lsttoi_array(t_list **stk);
 int		*ps_ezsorce(t_list *lst);
@@ -48,7 +53,10 @@ void	ps_3sorce(t_list **stk);
 void	ps_4sorce(t_list **stk_a, t_list **stk_b);
 void	ps_5sorce(t_list **stk_a, t_list **stk_b);
 void	ps_100sorce(t_list **stk_a, t_list **stk_b, int stk_size);
+void	ps_500sorce(t_list **stk_a, t_list **stk_b, int stk_size);
+void	ps_chunk_push(t_list **stk_a, t_list **stk_b, int stk_size, int *chunk);
+void	ps_chunk_pull(t_list **stk_a, t_list **stk_b);
 
-t_list	*ps_getstk_a(int argc, char **argv);
+t_list	*ps_getstk_a(int argc, char **argv, t_data *data);
 
 #endif

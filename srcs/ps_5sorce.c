@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 11:35:15 by ptungbun          #+#    #+#             */
-/*   Updated: 2023/03/01 18:46:30 by marvin           ###   ########.fr       */
+/*   Updated: 2023/03/03 14:09:51 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,9 @@ void ps_4sorce(t_list **stk_a, t_list **stk_b)
 	ps_dopb(stk_a, stk_b);
 	ps_3sorce(stk_a);
 	inlo = ps_inlo(stk_a, ((t_data *)(*stk_b)->data)->num);
-	if (inlo == 2)
+	if (inlo == 1)
+		ps_dopa(stk_a, stk_b);
+	else if (inlo == 2)
 	{
 		ps_dopa(stk_a, stk_b);
 		ps_dosa(stk_a);
@@ -59,7 +61,9 @@ void ps_5sorce(t_list **stk_a, t_list **stk_b)
 	ps_dopb(stk_a, stk_b);
 	ps_4sorce(stk_a, stk_b);
 	inlo = ps_inlo(stk_a, ((t_data *)(*stk_b)->data)->num);
-	if (inlo == 2)
+	if (inlo == 1)
+		ps_dopa(stk_a, stk_b);
+	else if (inlo == 2)
 	{
 		ps_dopa(stk_a, stk_b);
 		ps_dosa(stk_a);

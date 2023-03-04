@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 18:22:58 by ptungbun          #+#    #+#             */
-/*   Updated: 2023/03/01 18:44:56 by marvin           ###   ########.fr       */
+/*   Updated: 2023/03/01 22:27:53 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ int ps_inlo(t_list **stk, int to_find)
 
 	ar = ps_ezsorce(*stk);
 	i = 0;
-	while (ar[i] != '\0')
+	while (i < ft_lstsize(*stk))
 	{
 		if (ar[i] > to_find)
 			return(i + 1);
