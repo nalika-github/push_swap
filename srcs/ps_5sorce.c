@@ -19,6 +19,7 @@ static void	do_inlo3sorce(t_list **stk_a, t_list **stk_b)
 	ps_dosa(stk_a);
 	ps_dorra(stk_a);
 }
+
 static void	do_inlo4sorce(t_list **stk_a, t_list **stk_b)
 {
 	ps_dorra(stk_a);
@@ -27,7 +28,7 @@ static void	do_inlo4sorce(t_list **stk_a, t_list **stk_b)
 	ps_dora(stk_a);
 }
 
-void ps_4sorce(t_list **stk_a, t_list **stk_b)
+void	ps_4sorce(t_list **stk_a, t_list **stk_b)
 {
 	int	inlo;
 
@@ -50,7 +51,7 @@ void ps_4sorce(t_list **stk_a, t_list **stk_b)
 	}
 }
 
-void ps_5sorce(t_list **stk_a, t_list **stk_b)
+void	ps_5sorce(t_list **stk_a, t_list **stk_b)
 {
 	int	inlo;
 

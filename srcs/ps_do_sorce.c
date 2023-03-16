@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void ps_do_sorce(t_list **stk_a, t_list **stk_b, int stk_size)
+void	ps_do_sorce(t_list **stk_a, t_list **stk_b, int stk_size)
 {
 	if (ps_issorced(stk_a))
 		return ;

@@ -19,9 +19,9 @@ int	ps_issorced(t_list **stk)
 
 	lst = *stk;
 	i = 1;
-	while(lst)
+	while (lst)
 	{
-		if(i != ((t_data *)lst->data)->tage)
+		if (i != ((t_data *)lst->data)->tage)
 			return (0);
 		i++;
 		lst = lst->next;

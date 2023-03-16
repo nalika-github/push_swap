@@ -28,35 +28,40 @@ void	ps_startpush(t_list **stk_a, t_list **stk_b, int *chunk)
 	}
 }
 
-void ps_pushlogic(t_list **stk_a, t_list **stk_b, int *chunk)
+void	ps_dominchk(t_list **stk_a, t_list **stk_b, int *chunk)
+{
+	int	top_b;
+
+	if (chunk[0] != 1)
+	{
+		while (ps_isinchunk(*stk_b, chunk))
+			ps_dorb(stk_b);
+		ps_dopb(stk_a, stk_b);
+	}
+	else
+	{
+		top_b = ((t_data *)(*stk_b)->data)->num;
+		while (!ps_ismaxchk(*stk_b, top_b, chunk))
+		{
+			ps_dorb(stk_b);
+			top_b = ((t_data *)(*stk_b)->data)->num;
+		}
+		ps_dopb(stk_a, stk_b);
+	}	
+}
+
+void	ps_pushlogic(t_list **stk_a, t_list **stk_b, int *chunk)
 {
 	int	top_a;
 	int	top_b;
 
 	top_a = ((t_data *)(*stk_a)->data)->num;
-	if(ps_chknmem(*stk_b, chunk) <= 1)
+	if (ps_chknmem(*stk_b, chunk) <= 1)
 		ps_startpush(stk_a, stk_b, chunk);
-	else if(ps_ismaxchk(*stk_b, top_a, chunk))
+	else if (ps_ismaxchk(*stk_b, top_a, chunk))
 		ps_dopb(stk_a, stk_b);
-	else if(ps_isminchk(*stk_b, top_a, chunk))
-	{
-		if (chunk[0] != 1)
-		{
-			while(ps_isinchunk(*stk_b, chunk))
-				ps_dorb(stk_b);
-			ps_dopb(stk_a, stk_b);
-		}
-		else
-		{
-			while(!ps_ismaxchk(*stk_b, top_b, chunk))
-			{
-				ps_dorb(stk_b);
-				top_b = ((t_data *)(*stk_b)->data)->num;
-			}
-			ps_dopb(stk_a, stk_b);
-		}
-
-	}
+	else if (ps_isminchk(*stk_b, top_a, chunk))
+		ps_dominchk(stk_a, stk_b, chunk);
 	else
 	{
 		ps_doins(stk_a, stk_b, chunk);
@@ -64,3 +69,38 @@ void ps_pushlogic(t_list **stk_a, t_list **stk_b, int *chunk)
 	}
 }
 
+// void	ps_pushlogic(t_list **stk_a, t_list **stk_b, int *chunk)
+// {
+// 	int	top_a;
+// 	int	top_b;
+
+// 	top_a = ((t_data *)(*stk_a)->data)->num;
+// 	if (ps_chknmem(*stk_b, chunk) <= 1)
+// 		ps_startpush(stk_a, stk_b, chunk);
+// 	else if (ps_ismaxchk(*stk_b, top_a, chunk))
+// 		ps_dopb(stk_a, stk_b);
+// 	else if (ps_isminchk(*stk_b, top_a, chunk))
+// 	{
+// 		if (chunk[0] != 1)
+// 		{
+// 			while (ps_isinchunk(*stk_b, chunk))
+// 				ps_dorb(stk_b);
+// 			ps_dopb(stk_a, stk_b);
+// 		}
+// 		else
+// 		{
+// 			top_b = ((t_data *)(*stk_b)->data)->num;
+// 			while (!ps_ismaxchk(*stk_b, top_b, chunk))
+// 			{
+// 				ps_dorb(stk_b);
+// 				top_b = ((t_data *)(*stk_b)->data)->num;
+// 			}
+// 			ps_dopb(stk_a, stk_b);
+// 		}
+// 	}
+// 	else
+// 	{
+// 		ps_doins(stk_a, stk_b, chunk);
+// 		ps_dopb(stk_a, stk_b);
+// 	}
+// }

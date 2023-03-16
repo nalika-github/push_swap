@@ -28,12 +28,12 @@ static int	argv_isint(char **argv)
 	int	j;
 
 	i = 1;
-	while(argv[i])
+	while (argv[i])
 	{
 		j = 0;
 		if (ft_issign(argv[i][0]) && argv[i][1])
 			j++;
-		while(argv[i][j])
+		while (argv[i][j])
 		{
 			if (!ft_isdigit(argv[i][j]) && argv[i][j] != '\0')
 			{

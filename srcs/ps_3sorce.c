@@ -10,15 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
- #include "push_swap.h"
+#include "push_swap.h"
 
-void ps_2sorce(t_list **stk_a)
+void	ps_2sorce(t_list **stk_a)
 {
 	if (((t_data *)(*stk_a)->data)->tage == 2)
 		ps_dosa(stk_a);
 }
 
-void ps_3sorce(t_list **stk)
+void	ps_3sorce(t_list **stk)
 {
 	int		max_lo;
 	int		min_lo;

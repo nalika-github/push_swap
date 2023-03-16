@@ -30,7 +30,7 @@ int	*ps_lsttoiar(t_list *lst)
 
 void	ps_swap(int *ar, int i, int j)
 {
-	int buf;
+	int	buf;
 
 	buf = ar[j];
 	ar[j] = ar[i];
@@ -61,7 +61,7 @@ int	*ps_ezsorce(t_list *lst)
 	return (ar);
 }
 
-int ps_inlo(t_list **stk, int to_find)
+int	ps_inlo(t_list **stk, int to_find)
 {
 	int		i;
 	int		*ar;
@@ -71,7 +71,7 @@ int ps_inlo(t_list **stk, int to_find)
 	while (i < ft_lstsize(*stk))
 	{
 		if (ar[i] > to_find)
-			return(i + 1);
+			return (i + 1);
 		i++;
 	}
 	free(ar);

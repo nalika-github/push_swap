@@ -26,7 +26,7 @@ static int	ps_ispushable(t_list **stk_a, t_list **stk_b)
 	return (0);
 }
 
-void ps_doins(t_list **stk_a, t_list **stk_b, int *chunk)
+void	ps_doins(t_list **stk_a, t_list **stk_b, int *chunk)
 {
 	int	stop;
 	int	top_a;
@@ -36,7 +36,7 @@ void ps_doins(t_list **stk_a, t_list **stk_b, int *chunk)
 	top_a = ((t_data *)((*stk_a)->data))->num;
 	if (!ps_isinchunk(ft_lstlast(*stk_b), chunk))
 		ps_dorb(stk_b);
-	while(stop == 0)
+	while (stop == 0)
 	{
 		top_b = ((t_data *)((*stk_b)->data))->num;
 		if (ps_ispushable(stk_a, stk_b))

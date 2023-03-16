@@ -40,21 +40,20 @@ void	ps_tage(int argc, t_list *stk_a)
 	t_list	*lst;
 	t_list	*lowest;
 
-	lst = stk_a;
 	tage = 1;
 	while (tage < argc)
 	{
 		lst = stk_a;
 		while (lst)
 		{
-			if(((t_data *)lst->data)->tage == 0)
+			if (((t_data *)lst->data)->tage == 0)
 				lowest = lst;
 			lst = lst->next;
 		}
 		lst = stk_a;
 		while (lst)
 		{
-			if(((t_data *)lst->data)->tage == 0 && \
+			if (((t_data *)lst->data)->tage == 0 && \
 			((t_data *)lowest->data)->num > ((t_data *)lst->data)->num)
 				lowest = lst;
 			lst = lst->next;

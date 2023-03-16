@@ -17,7 +17,7 @@ int	ps_chknmem(t_list *stk, int *chunk)
 	int	i;
 
 	i = 0;
-	while(stk)
+	while (stk)
 	{
 		if (ps_isinchunk(stk, chunk))
 			i++;
@@ -32,7 +32,7 @@ int	ps_ismaxchk(t_list *stk, int num, int *chunk)
 	{
 		if (num < ((t_data *)stk->data)->num && \
 		ps_isinchunk(stk, chunk))
-			return(0);
+			return (0);
 		stk = stk->next;
 	}
 	return (1);
@@ -44,9 +44,8 @@ int	ps_isminchk(t_list *stk, int num, int *chunk)
 	{
 		if (num > ((t_data *)stk->data)->num && \
 		ps_isinchunk(stk, chunk))
-			return(0);
+			return (0);
 		stk = stk->next;
 	}
 	return (1);
 }
-

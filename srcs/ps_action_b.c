@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void ps_dosb(t_list **stk_b)
+void	ps_dosb(t_list **stk_b)
 {
 	t_list	*next;
 
@@ -23,7 +23,7 @@ void ps_dosb(t_list **stk_b)
 	ft_putstr_fd("sb\n", 1);
 }
 
-void ps_dorrb(t_list **stk_b)
+void	ps_dorrb(t_list **stk_b)
 {
 	t_list	*pop;
 
@@ -32,7 +32,7 @@ void ps_dorrb(t_list **stk_b)
 	ft_putstr_fd("rrb\n", 1);
 }
 
-void ps_dorb(t_list **stk_b)
+void	ps_dorb(t_list **stk_b)
 {
 	t_list	*pop;
 
@@ -41,7 +41,7 @@ void ps_dorb(t_list **stk_b)
 	ft_putstr_fd("rb\n", 1);
 }
 
-void ps_dopa(t_list **stk_a, t_list **stk_b)
+void	ps_dopa(t_list **stk_a, t_list **stk_b)
 {
 	t_list	*pop;
 

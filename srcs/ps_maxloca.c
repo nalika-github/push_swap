@@ -22,7 +22,7 @@ int	ps_maxloca(t_list **stk)
 	max = ((t_data *)lst->data)->num;
 	while (lst)
 	{
-		if(max < ((t_data *)lst->data)->num)
+		if (max < ((t_data *)lst->data)->num)
 			max = ((t_data *)lst->data)->num;
 		lst = lst->next;
 	}
@@ -30,8 +30,8 @@ int	ps_maxloca(t_list **stk)
 	lst = *stk;
 	while (lst)
 	{
-		if(max == ((t_data *)lst->data)->num)
-			return(max_loca);
+		if (max == ((t_data *)lst->data)->num)
+			return (max_loca);
 		max_loca++;
 		lst = lst->next;
 	}

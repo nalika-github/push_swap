@@ -22,7 +22,7 @@ int	ps_minloca(t_list **stk)
 	min = ((t_data *)lst->data)->num;
 	while (lst)
 	{
-		if(min > ((t_data *)lst->data)->num)
+		if (min > ((t_data *)lst->data)->num)
 			min = ((t_data *)lst->data)->num;
 		lst = lst->next;
 	}
@@ -30,8 +30,8 @@ int	ps_minloca(t_list **stk)
 	lst = *stk;
 	while (lst)
 	{
-		if(min == ((t_data *)lst->data)->num)
-			return(min_loca);
+		if (min == ((t_data *)lst->data)->num)
+			return (min_loca);
 		min_loca++;
 		lst = lst->next;
 	}

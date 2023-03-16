@@ -17,7 +17,7 @@ static void	ps_free(t_data	*data, t_list *stk_a)
 	t_list	*top;
 
 	free(data);
-	while(stk_a)
+	while (stk_a)
 	{
 		top = stk_a->next;
 		free(stk_a);
@@ -43,5 +43,5 @@ int	main(int argc, char **argv)
 	stk_size = ft_lstsize(stk_a);
 	ps_do_sorce(&stk_a, &stk_b, stk_size);
 	ps_free(data, stk_a);
-	return(0);
+	return (0);
 }
