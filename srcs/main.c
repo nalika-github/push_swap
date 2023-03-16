@@ -38,7 +38,10 @@ int	main(int argc, char **argv)
 	stk_a = ps_getstk_a(argv, data);
 	stk_b = 0;
 	if (ps_data_error(stk_a))
+	{
+		ps_free(data, stk_a);
 		return (0);
+	}
 	ps_tage(argc, stk_a);
 	stk_size = ft_lstsize(stk_a);
 	ps_do_sorce(&stk_a, &stk_b, stk_size);

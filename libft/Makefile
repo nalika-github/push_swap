@@ -26,9 +26,8 @@ SRCS		=	ft_isalpha.c ft_isdigit.c ft_isascii.c ft_isalnum.c ft_isprint.c \
 				ft_strchr.c ft_strdup.c ft_strrchr.c ft_strnstr.c ft_itoa.c \
 				ft_substr.c ft_strtrim.c ft_strmapi.c ft_strjoin.c ft_split.c \
 				ft_issign.c ft_lstnew.c ft_lstadd_front.c ft_lstlast.c ft_lstadd_back.c \
-				ft_lstsize.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c \
-				ft_stkadd.c ft_stkisempty.c ft_stkisfull.c ft_stkpeek.c ft_stkpop.c \
-				ft_stkswap.c ft_strcat.c ft_lstpop_top.c ft_lstpop_bot.c
+				ft_lstsize.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c ft_strcat.c \
+				ft_lstpop_bot.c ft_lstpop_top.c 
 
 
 # Find all the .o files we want to build libft.a

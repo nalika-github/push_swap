@@ -23,20 +23,6 @@ typedef struct s_list
 	struct s_list	*next;
 }					t_list;
 
-typedef struct	s_stack
-{
-	int			top;
-	unsigned	cap;
-	int			*array;
-}				t_stack;
-
-t_stack				*ft_getstack(unsigned capacity);
-void				ft_stackadd(t_stack *stack, int add_data);
-int					ft_stackisempty(t_stack *stack);
-int					ft_stackisfull(t_stack *stack);
-int					ft_stackpeek(t_stack *stack);
-int					ft_stackpop(t_stack *stack);
-
 int					ft_issign(int c);
 int					ft_isalpha(int c);
 int					ft_isdigit(int c);
