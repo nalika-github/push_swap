@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 16:02:58 by ptungbun          #+#    #+#             */
-/*   Updated: 2023/03/15 19:39:33 by marvin           ###   ########.fr       */
+/*   Updated: 2023/03/16 15:02:56 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,13 +47,12 @@ void	ps_dominchk(t_list **stk_a, t_list **stk_b, int *chunk)
 			top_b = ((t_data *)(*stk_b)->data)->num;
 		}
 		ps_dopb(stk_a, stk_b);
-	}	
+	}
 }
 
 void	ps_pushlogic(t_list **stk_a, t_list **stk_b, int *chunk)
 {
 	int	top_a;
-	int	top_b;
 
 	top_a = ((t_data *)(*stk_a)->data)->num;
 	if (ps_chknmem(*stk_b, chunk) <= 1)
