@@ -1,0 +1,11 @@
+*test*
+!test*.sh
+*.a
+*.o
+*.out
+*.dSYM
+.vscode
+build
+cbuild
+push_swap
+checker
