@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 13:22:30 by ptungbun          #+#    #+#             */
-/*   Updated: 2023/03/01 18:47:18 by marvin           ###   ########.fr       */
+/*   Updated: 2023/03/21 21:03:27 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	ps_data_error(t_list *stk_a)
 {
 	if (argv_isduplicated(stk_a))
 	{
-		ft_putstr_fd("Error: invalid arguments is duplicated\n", 1);
+		ft_putstr_fd("Error\n", 2);
 		return (1);
 	}
 	return (0);

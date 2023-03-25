@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 15:51:40 by ptungbun          #+#    #+#             */
-/*   Updated: 2023/02/27 18:27:26 by marvin           ###   ########.fr       */
+/*   Updated: 2023/03/21 16:26:01 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,5 +75,7 @@ void				ft_lstclear(t_list **lst, void (*del)(void*));
 void				ft_lstiter(t_list *lst, void (*f)(void *));
 t_list				*ft_lstpop_top(t_list **lst);
 t_list				*ft_lstpop_bot(t_list *lst);
+
+long				ft_atol(const char *str);
 
 #endif

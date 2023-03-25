@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 22:02:12 by ptungbun          #+#    #+#             */
-/*   Updated: 2023/03/21 16:21:54 by marvin           ###   ########.fr       */
+/*   Updated: 2023/03/21 16:23:49 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,11 @@ static int	is_space(char c)
 	return (0);
 }
 
-int	ft_atoi(const char *str)
+long	ft_atol(const char *str)
 {
-	int	i;
-	int	sign;
-	int	num;
+	long	i;
+	long	sign;
+	long	num;
 
 	i = 0;
 	num = 0;
