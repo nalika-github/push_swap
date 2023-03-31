@@ -14,7 +14,7 @@
 
 t_list	*ft_lstpop_top(t_list **lst)
 {
-	t_list *pop;
+	t_list	*pop;
 
 	if (ft_lstsize(*lst) == 0)
 		return (0);

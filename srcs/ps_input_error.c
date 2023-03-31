@@ -74,7 +74,7 @@ int	isarg_empthy(char **argv)
 	{
 		j = 0;
 		if (argv[i][0] == '\0')
-			return(1);
+			return (1);
 		while (argv[i][j])
 		{
 			if (argv[i][j] != ' ')
