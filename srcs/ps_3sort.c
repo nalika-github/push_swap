@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_3sorce.c                                        :+:      :+:    :+:   */
+/*   ps_3sort.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 11:35:15 by ptungbun          #+#    #+#             */
-/*   Updated: 2023/03/15 20:34:42 by marvin           ###   ########.fr       */
+/*   Updated: 2023/04/02 17:00:00 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ps_2sorce(t_list **stk_a)
+void	ps_2sort(t_list **stk_a)
 {
 	if (((t_data *)(*stk_a)->data)->tage == 2)
 		ps_dosa(stk_a);
 }
 
-void	ps_3sorce(t_list **stk)
+void	ps_3sort(t_list **stk)
 {
 	int		max_lo;
 	int		min_lo;

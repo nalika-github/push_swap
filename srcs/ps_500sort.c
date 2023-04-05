@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_100sorce.c                                      :+:      :+:    :+:   */
+/*   ps_500sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 19:23:07 by ptungbun          #+#    #+#             */
-/*   Updated: 2023/03/15 19:50:52 by marvin           ###   ########.fr       */
+/*   Updated: 2023/04/02 17:01:09 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@ static void	ps_chunk_div(int i, int stk_size, int *chunk)
 {
 	int	chunk_size;
 
-	chunk_size = 21;
+	chunk_size = 42;
 	chunk[0] = (i * chunk_size) + 1;
 	chunk[1] = (i + 1) * chunk_size;
 	if (chunk[1] > stk_size)
 		chunk[1] = stk_size;
 }
 
-void	ps_100sorce(t_list **stk_a, t_list **stk_b, int stk_size)
+void	ps_500sort(t_list **stk_a, t_list **stk_b, int stk_size)
 {
 	int	i;
 	int	j;

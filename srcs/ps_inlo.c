@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 18:22:58 by ptungbun          #+#    #+#             */
-/*   Updated: 2023/03/04 17:46:38 by marvin           ###   ########.fr       */
+/*   Updated: 2023/04/02 17:13:10 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	ps_swap(int *ar, int i, int j)
 	ar[i] = buf;
 }
 
-int	*ps_ezsorce(t_list *lst)
+int	*ps_ezsort(t_list *lst)
 {
 	int		lst_size;
 	int		i;
@@ -66,7 +66,7 @@ int	ps_inlo(t_list **stk, int to_find)
 	int		i;
 	int		*ar;
 
-	ar = ps_ezsorce(*stk);
+	ar = ps_ezsort(*stk);
 	i = 0;
 	while (i < ft_lstsize(*stk))
 	{

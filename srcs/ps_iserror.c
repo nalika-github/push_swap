@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_input_error.c                                   :+:      :+:    :+:   */
+/*   ps_iserror.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 13:22:30 by ptungbun          #+#    #+#             */
-/*   Updated: 2023/03/21 21:04:30 by marvin           ###   ########.fr       */
+/*   Updated: 2023/04/03 18:33:37 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	argc_iscollect(int argc)
+int	isargc_enough(int argc)
 {
 	if (argc < 2)
 	{
@@ -22,20 +22,20 @@ static int	argc_iscollect(int argc)
 	return (1);
 }
 
-static int	argv_isint(char **argv)
+int	isargv_digit(char **split)
 {
 	int	i;
 	int	j;
 
-	i = 1;
-	while (argv[i])
+	i = 0;
+	while (split[i])
 	{
 		j = 0;
-		if (ft_issign(argv[i][0]) && argv[i][1])
+		if (ft_issign(split[i][0]) && split[i][1])
 			j++;
-		while (argv[i][j])
+		while (split[i][j])
 		{
-			if (!ft_isdigit(argv[i][j]) && argv[i][j] != '\0')
+			if (!ft_isdigit(split[i][j]) && split[i][j] != '\0')
 			{
 				ft_putstr_fd("Error\n", 2);
 				return (0);
@@ -47,7 +47,7 @@ static int	argv_isint(char **argv)
 	return (1);
 }
 
-static int	argv_isover(char **argv)
+int	argv_isoverflow(char **argv)
 {
 	int	i;
 
@@ -64,37 +64,51 @@ static int	argv_isover(char **argv)
 	return (0);
 }
 
-int	isarg_empthy(char **argv)
+int	isargv_empthy(char **argv)
 {
 	int	i;
 	int	j;
+	int	is_allspace;
 
 	i = 1;
 	while (argv[i])
 	{
 		j = 0;
+		is_allspace = 1;
 		if (argv[i][0] == '\0')
 			return (1);
 		while (argv[i][j])
 		{
 			if (argv[i][j] != ' ')
-				return (0);
+				is_allspace = 0;
 			j++;
 		}
+		if (is_allspace == 1)
+			return (1);
 		i++;
 	}
-	return (1);
+	return (0);
 }
 
-int	ps_input_error(int argc, char **argv)
+int	isdata_duplicated(t_list *stk_a)
 {
-	if (isarg_empthy(argv))
-		return (1);
-	if (!argc_iscollect(argc))
-		return (1);
-	if (!argv_isint(argv))
-		return (1);
-	if (argv_isover(argv))
-		return (1);
+	t_list	*h_lst;
+	t_list	*c_lst;
+
+	h_lst = stk_a;
+	while (h_lst)
+	{
+		c_lst = h_lst->next;
+		while (c_lst)
+		{
+			if (((t_data *)c_lst->data)->num == ((t_data *)h_lst->data)->num)
+			{
+				ft_putstr_fd("Error\n", 2);
+				return (1);
+			}
+			c_lst = c_lst->next;
+		}
+		h_lst = h_lst->next;
+	}
 	return (0);
 }

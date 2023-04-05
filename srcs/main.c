@@ -6,23 +6,34 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 11:09:07 by ptungbun          #+#    #+#             */
-/*   Updated: 2023/03/15 20:39:21 by marvin           ###   ########.fr       */
+/*   Updated: 2023/04/05 12:38:30 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	ps_free(t_data	*data, t_list *stk_a)
+static int	ps_isvalid_arg(int argc, char **argv)
 {
-	t_list	*top;
-
-	free(data);
-	while (stk_a)
+	if (!isargc_enough(argc))
+		return (0);
+	if (isargv_empthy(argv))
 	{
-		top = stk_a->next;
-		free(stk_a);
-		stk_a = top;
+		ft_putstr_fd("Error\n", 2);
+		return (0);
 	}
+	return (1);
+}
+
+static int	ps_isvalid_data(char **split)
+{
+	if (isargv_digit(split))
+		return (0);
+	if (argv_isoverflow(split))
+	{
+		ft_putstr_fd("Error\n", 2);
+		return (0);
+	}
+	return (1);
 }
 
 int	main(int argc, char **argv)
@@ -30,21 +41,20 @@ int	main(int argc, char **argv)
 	t_list	*stk_a;
 	t_list	*stk_b;
 	t_data	*data;
-	int		stk_size;
+	char	**split;
 
-	if (ps_input_error(argc, argv))
+	if (!ps_isvalid_arg(argc, argv))
 		return (0);
+	else
+		split = ps_argvtosplit(argc, argv);
+	if (ps_isvalid_data(split))
+		return (ps_freesplit(split));
 	data = ft_calloc((size_t)argc, sizeof(t_data));
-	stk_a = ps_getstk_a(argv, data);
+	stk_a = ps_getstk_a(split, data);
+	ps_freesplit(split);
 	stk_b = 0;
-	if (ps_data_error(stk_a))
-	{
-		ps_free(data, stk_a);
-		return (0);
-	}
-	ps_tage(argc, stk_a);
-	stk_size = ft_lstsize(stk_a);
-	ps_do_sorce(&stk_a, &stk_b, stk_size);
-	ps_free(data, stk_a);
-	return (0);
+	if (isdata_duplicated(stk_a))
+		return (ps_freestk(data, stk_a));
+	ps_do_sort(&stk_a, &stk_b, ft_lstsize(stk_a));
+	return (ps_freestk(data, stk_a));
 }

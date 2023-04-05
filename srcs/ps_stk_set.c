@@ -12,36 +12,14 @@
 
 #include "push_swap.h"
 
-t_list	*ps_getstk_a(char **argv, t_data *data)
-{
-	int		i;
-	t_list	*lst;
-	t_list	*new_lst;
-
-	i = 1;
-	data[i - 1].num = ft_atoi(argv[i]);
-	data[i - 1].tage = 0;
-	lst = ft_lstnew(data);
-	i++;
-	while (argv[i])
-	{
-		data[i - 1].num = ft_atoi(argv[i]);
-		data[i - 1].tage = 0;
-		new_lst = ft_lstnew(&data[i - 1]);
-		ft_lstadd_back(&lst, new_lst);
-		i++;
-	}
-	return (lst);
-}
-
-void	ps_tage(int argc, t_list *stk_a)
+static void	ps_tage(int i, t_list *stk_a)
 {
 	int		tage;
 	t_list	*lst;
 	t_list	*lowest;
 
 	tage = 1;
-	while (tage < argc)
+	while (tage <= i)
 	{
 		lst = stk_a;
 		while (lst)
@@ -61,4 +39,27 @@ void	ps_tage(int argc, t_list *stk_a)
 		((t_data *)lowest->data)->tage = tage;
 		tage++;
 	}
+}
+
+t_list	*ps_getstk_a(char **split, t_data *data)
+{
+	int		i;
+	t_list	*lst;
+	t_list	*new_lst;
+
+	i = 0;
+	data[i].num = ft_atoi(split[i]);
+	data[i].tage = 0;
+	lst = ft_lstnew(data);
+	i++;
+	while (split[i])
+	{
+		data[i].num = ft_atoi(split[i]);
+		data[i].tage = 0;
+		new_lst = ft_lstnew(&data[i]);
+		ft_lstadd_back(&lst, new_lst);
+		i++;
+	}
+	ps_tage(i, lst);
+	return (lst);
 }
