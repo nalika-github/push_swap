@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 08:51:51 by ptungbun          #+#    #+#             */
-/*   Updated: 2023/04/05 12:38:25 by marvin           ###   ########.fr       */
+/*   Updated: 2023/04/08 14:00:01 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,18 +45,17 @@ static	size_t	sub_strlen(char const *s, size_t index, char c)
 	return (i);
 }
 
-static char	*cell_input(char const *s, size_t index, char c, char *cell)
+static void	cell_input(char const *s, size_t index, char c, char **cell)
 {
 	size_t	i;
 
 	i = 0;
 	while (s[index + i] != c && s[index + i] != 0)
 	{
-		cell[i] = s[index + i];
+		(*cell)[i] = s[index + i];
 		i++;
 	}
-	cell[i] = 0;
-	return (cell);
+	(*cell)[i] = '\0';
 }
 
 char	**ft_split(char const *s, char c)
@@ -67,7 +66,7 @@ char	**ft_split(char const *s, char c)
 	char	**split;
 
 	split = malloc(sizeof(char *) * (cell_count(s, c) + 1));
-	split[cell_count(s, c)] = 0;
+	split[cell_count(s, c)] = '\0';
 	if (!s || !split)
 		return (0);
 	i = 0;
@@ -78,7 +77,7 @@ char	**ft_split(char const *s, char c)
 		{
 			sub_len = sub_strlen(s, i, c);
 			split[j] = malloc(sizeof(char) * sub_len + 1);
-			split[j] = cell_input(s, i, c, split[j]);
+			cell_input(s, i, c, &split[j]);
 			i = i + sub_len - 1;
 			j++;
 		}

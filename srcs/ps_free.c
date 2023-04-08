@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 11:09:07 by ptungbun          #+#    #+#             */
-/*   Updated: 2023/04/05 12:35:05 by marvin           ###   ########.fr       */
+/*   Updated: 2023/04/08 14:52:13 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,9 @@ int	ps_freesplit(char **split)
 	i = 0;
 	while (split[i])
 	{
-		printf("split %d = %s", i, split[i]);
 		free(split[i]);
 		i++;
 	}
-	printf("split member freed\n");
-	// free(split);
-	printf("split freed\n");
+	free(split);
 	return (0);
 }

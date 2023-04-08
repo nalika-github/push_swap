@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 13:22:30 by ptungbun          #+#    #+#             */
-/*   Updated: 2023/04/03 20:17:22 by marvin           ###   ########.fr       */
+/*   Updated: 2023/04/08 14:53:33 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,6 @@ char	**ps_argvtosplit(int argc, char **argv)
 
 	str = ft_calloc(ps_strsize(argc, argv), sizeof(char));
 	ps_fillstr(str, argv);
-	// printf("%s\n", str);
 	split = ft_split(str, ' ');
 	free(str);
 	return (split);
