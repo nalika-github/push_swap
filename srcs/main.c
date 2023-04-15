@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 11:09:07 by ptungbun          #+#    #+#             */
-/*   Updated: 2023/04/08 14:49:59 by marvin           ###   ########.fr       */
+/*   Updated: 2023/04/08 19:22:10 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,10 @@ static int	ps_isvalid_arg(int argc, char **argv)
 
 static int	ps_isvalid_data(char **split)
 {
-	if (isargv_digit(split))
+	if (!isargv_digit(split))
 		return (0);
 	if (argv_isoverflow(split))
-	{
-		ft_putstr_fd("Error\n", 2);
 		return (0);
-	}
 	return (1);
 }
 
@@ -56,7 +53,7 @@ int	main(int argc, char **argv)
 	if (!ps_isvalid_arg(argc, argv))
 		return (0);
 	split = ps_argvtosplit(argc, argv);
-	if (ps_isvalid_data(split))
+	if (!ps_isvalid_data(split))
 		return (ps_freesplit(split));
 	data = ft_calloc((size_t)split_size(split), sizeof(t_data));
 	stk_a = ps_getstk_a(split, data);
@@ -66,5 +63,4 @@ int	main(int argc, char **argv)
 		return (ps_freestk(data, stk_a));
 	ps_do_sort(&stk_a, &stk_b, ft_lstsize(stk_a));
 	return (ps_freestk(data, stk_a));
-	return (0);
 }

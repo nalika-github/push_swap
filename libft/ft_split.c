@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 08:51:51 by ptungbun          #+#    #+#             */
-/*   Updated: 2023/04/08 14:00:01 by marvin           ###   ########.fr       */
+/*   Updated: 2023/04/15 13:43:06 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,7 @@ char	**ft_split(char const *s, char c)
 	size_t	sub_len;
 	char	**split;
 
-	split = malloc(sizeof(char *) * (cell_count(s, c) + 1));
-	split[cell_count(s, c)] = '\0';
+	split = ft_calloc((cell_count(s, c) + 1), sizeof(char *));
 	if (!s || !split)
 		return (0);
 	i = 0;
@@ -76,7 +75,7 @@ char	**ft_split(char const *s, char c)
 		if (s[i] != c)
 		{
 			sub_len = sub_strlen(s, i, c);
-			split[j] = malloc(sizeof(char) * sub_len + 1);
+			split[j] = ft_calloc(sub_len + 1, sizeof(char));
 			cell_input(s, i, c, &split[j]);
 			i = i + sub_len - 1;
 			j++;

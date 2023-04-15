@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 13:22:30 by ptungbun          #+#    #+#             */
-/*   Updated: 2023/04/03 18:33:37 by marvin           ###   ########.fr       */
+/*   Updated: 2023/04/08 19:22:39 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,7 @@
 int	isargc_enough(int argc)
 {
 	if (argc < 2)
-	{
-		ft_putstr_fd("Error\n", 2);
 		return (0);
-	}
 	return (1);
 }
 
@@ -47,14 +44,14 @@ int	isargv_digit(char **split)
 	return (1);
 }
 
-int	argv_isoverflow(char **argv)
+int	argv_isoverflow(char **split)
 {
 	int	i;
 
-	i = 1;
-	while (argv[i])
+	i = 0;
+	while (split[i])
 	{
-		if (ft_atoi(argv[i]) != ft_atol(argv[i]))
+		if (ft_atoi(split[i]) != ft_atol(split[i]))
 		{
 			ft_putstr_fd("Error\n", 2);
 			return (1);

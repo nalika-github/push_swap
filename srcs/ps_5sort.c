@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 11:35:15 by ptungbun          #+#    #+#             */
-/*   Updated: 2023/04/02 17:00:22 by marvin           ###   ########.fr       */
+/*   Updated: 2023/04/08 17:24:03 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	ps_4sort(t_list **stk_a, t_list **stk_b)
 
 	ps_dopb(stk_a, stk_b);
 	ps_3sort(stk_a);
-	inlo = ps_inlo(stk_a, ((t_data *)(*stk_b)->data)->num);
+	inlo = ps_inlo(*stk_a, *stk_b);
 	if (inlo == 1)
 		ps_dopa(stk_a, stk_b);
 	else if (inlo == 2)
@@ -57,7 +57,7 @@ void	ps_5sort(t_list **stk_a, t_list **stk_b)
 
 	ps_dopb(stk_a, stk_b);
 	ps_4sort(stk_a, stk_b);
-	inlo = ps_inlo(stk_a, ((t_data *)(*stk_b)->data)->num);
+	inlo = ps_inlo(*stk_a, *stk_b);
 	if (inlo == 1)
 		ps_dopa(stk_a, stk_b);
 	else if (inlo == 2)

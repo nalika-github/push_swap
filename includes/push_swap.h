@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 11:06:33 by ptungbun          #+#    #+#             */
-/*   Updated: 2023/04/03 20:09:47 by marvin           ###   ########.fr       */
+/*   Updated: 2023/04/08 17:36:13 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ typedef struct s_data
 
 int		ps_input_error(int argc, char **argv);
 int		ps_data_error(t_list *stk_a);
-int		ps_inlo(t_list **stk, int to_find);
+int		ps_inlo(t_list *stk_a, t_list *stk_b);
 int		ps_maxloca(t_list **stk);
 int		ps_minloca(t_list **stk);
 int		ps_issorted(t_list **stk);
@@ -36,14 +36,11 @@ int		ps_isedge(t_list **stk_b);
 int		ps_chknmem(t_list *stk, int *chunk);
 int		isargc_enough(int argc);
 int		isargv_digit(char **argv);
-int		argv_isoverflow(char **argv);
+int		argv_isoverflow(char **split);
 int		isargv_empthy(char **argv);
 int		isdata_duplicated(t_list *stk_a);
 int		ps_freestk(t_data	*data, t_list *stk_a);
 int		ps_freesplit(char **split);
-
-int		*ps_lsttoi_array(t_list **stk);
-int		*ps_ezsort(t_list *lst);
 
 void	ps_do_sort(t_list **stk_a, t_list **stk_b, int stk_size);
 void	ps_dosa(t_list **stk_a);
